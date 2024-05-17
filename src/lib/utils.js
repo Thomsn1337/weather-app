@@ -18,13 +18,22 @@ function kmhToMph(value) {
  * @param {string} location
  */
 async function getWeatherData(location) {
-    const apiKey = "9YBLYGXYQRMR26C25MP2BV8SB";
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&key=${apiKey}`;
+    try {
+        const apiKey = "9YBLYGXYQRMR26C25MP2BV8SB";
+        const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}/next7days?unitGroup=metric&key=${apiKey}`;
 
-    const response = await fetch(url, { mode: "cors" });
-    const data = await response.json();
+        const response = await fetch(url, { mode: "cors" });
+        if (!response.ok) {
+            throw new Error(
+                "Location not found. Please enter a valid location",
+            );
+        }
 
-    return data;
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        alert(err.message);
+    }
 }
 
 /**
