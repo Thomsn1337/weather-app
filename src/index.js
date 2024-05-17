@@ -1,12 +1,25 @@
 import { getWeatherData, processData } from "./lib/utils";
 import "./style.css";
 
-async function main() {
-    const weatherData = await getWeatherData("naturns");
-    const processed = processData(weatherData);
+const locationForm = document.querySelector("#location-form");
+const locationInput = document.querySelector("#location");
 
-    console.log(weatherData);
+/**
+ * @param {string} location
+ */
+async function main(location) {
+    const weatherData = await getWeatherData(location);
+    if (!weatherData) {
+        return;
+    }
+
+    const processed = processData(weatherData);
     console.log(processed);
 }
 
-main();
+main("naturns");
+
+locationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    main(locationInput.value);
+});
