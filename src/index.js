@@ -1,3 +1,4 @@
+import Renderer from "./lib/renderer";
 import { getWeatherData, processData } from "./lib/utils";
 import "./style.css";
 
@@ -15,9 +16,11 @@ async function main(location) {
 
     const processed = processData(weatherData);
     console.log(processed);
+
+    Renderer.displayData(processed);
 }
 
-main("naturns");
+main("rome");
 
 locationForm.addEventListener("submit", (e) => {
     e.preventDefault();
