@@ -77,7 +77,7 @@ function processData(data) {
     });
 
     return {
-        address: data.resolvedAddress,
+        title: data.resolvedAddress,
         description: data.description,
         currentConditions,
         days,

@@ -1,7 +1,7 @@
 {
     "name": "weather-app",
     "version": "1.0.0",
-    "description": "Template for webpack projects",
+    "description": "Simple weather app",
     "main": "index.js",
     "scripts": {
         "build": "webpack --config webpack.prod.js",
@@ -27,5 +27,8 @@
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^5.0.4",
         "webpack-merge": "^5.10.0"
+    },
+    "dependencies": {
+        "date-fns": "^3.6.0"
     }
 }
