@@ -1,3 +1,4 @@
+import currentInfo from "../components/currentInfo";
 import header from "../components/header";
 
 const Renderer = (function Renderer() {
@@ -12,11 +13,21 @@ const Renderer = (function Renderer() {
     }
 
     /**
+     * @param {object} currentData
+     */
+    function displayCurrentData(currentData) {
+        const container = document.querySelector("#current-conditions");
+
+        container.innerHTML = currentInfo(currentData);
+    }
+
+    /**
      * @param {object} data
      */
     function displayData(data) {
-        const { title, description } = data;
+        const { title, description, currentConditions, days } = data;
         displayTitle(title, description);
+        displayCurrentData(currentConditions);
     }
 
     return {
