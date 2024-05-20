@@ -61,12 +61,23 @@ form>input {
 form>button {
     flex: 1;
     font-size: var(--font-size);
-    max-width: 150px;
+    font-weight: 500;
+    max-width: 9rem;
     cursor: pointer;
-    border: var(--border-thickness) solid var(--color-accent);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
     background: var(--color-accent);
     color: var(--color-base);
+}
+
+form>button#unit-switcher {
+    max-width: 8rem;
+    margin-right: 1.5rem;
+    border: var(--border-thickness) solid var(--color-accent);
+    border-radius: var(--border-radius);
+}
+
+form>button[type="submit"] {
+    border: var(--border-thickness) solid var(--color-accent);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 #title-container>h2 {
@@ -113,6 +124,7 @@ form>button {
 
 #current-icon>img {
     max-width: 6rem;
+    min-height: 6rem;
 }
 
 #current-data {
@@ -122,8 +134,13 @@ form>button {
     border-left: 2px solid var(--color-accent);
 }
 
+#current-data>div {
+    width: 5rem;
+}
+
 #current-data img {
     max-width: 3rem;
+    margin-bottom: 2rem;
 }
 
 #forecast-container>#days {
