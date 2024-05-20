@@ -17,38 +17,41 @@ const Renderer = (function Renderer() {
 
     /**
      * @param {object} currentData
+     * @param {boolean} state
      */
-    function displayCurrentData(currentData) {
+    function displayCurrentData(currentData, state) {
         const container = document.querySelector("#current-conditions");
 
         if (container !== null) {
-            container.innerHTML = currentInfo(currentData);
+            container.innerHTML = currentInfo(currentData, state);
         }
     }
 
     /**
      * @param {Array} days
+     * @param {boolean} state
      */
-    function displayForecast(days) {
+    function displayForecast(days, state) {
         const container = document.querySelector("#days");
 
         if (container !== null) {
             container.innerHTML = "";
 
             days.forEach((day) => {
-                container.innerHTML += dayInfo(day);
+                container.innerHTML += dayInfo(day, state);
             });
         }
     }
 
     /**
      * @param {object} data
+     * @param {boolean} state
      */
-    function displayData(data) {
+    function displayData(data, state) {
         const { title, description, currentConditions, days } = data;
         displayTitle(title, description);
-        displayCurrentData(currentConditions);
-        displayForecast(days);
+        displayCurrentData(currentConditions, state);
+        displayForecast(days, state);
     }
 
     return {

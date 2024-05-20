@@ -3,13 +3,22 @@ import icons from "../img/weather/icons";
 
 /**
  * @param {object} day
+ * @param {boolean} state
  */
-function dayInfo(day) {
-    console.log(day);
-
+function dayInfo(day, state) {
     const date = new Date(day.datetime);
     const icon = icons[day.icon];
-    const tempData = day.metric;
+
+    let tempmin;
+    let tempmax;
+
+    if (state) {
+        tempmin = `${day.metric.tempmin} °C`;
+        tempmax = `${day.metric.tempmax} °C`;
+    } else {
+        tempmin = `${day.us.tempmin} °F`;
+        tempmax = `${day.us.tempmax} °F`;
+    }
 
     return `
         <div class="day">
@@ -17,8 +26,8 @@ function dayInfo(day) {
             <p class="day-date">${format(date, "d.MM.yyyy")}</p>
             <img src="${icon}" alt="${day.icon}" />
             <div class="day-data">
-                <p class="temp-min">${tempData.tempmin} °C</p>
-                <p class="temp-max">${tempData.tempmax} °C</p>
+                <p class="temp-min">${tempmin}</p>
+                <p class="temp-max">${tempmax}</p>
                 <p class="humidity">${day.humidity}%</p>
             </div>
         </div>

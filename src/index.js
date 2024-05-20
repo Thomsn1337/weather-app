@@ -4,6 +4,10 @@ import "./style.css";
 
 const locationForm = document.querySelector("#location-form");
 const locationInput = document.querySelector("#location");
+const unitSwitcher = document.querySelector("#unit-switcher");
+
+let state = true;
+let processed;
 
 /**
  * @param {string} location
@@ -14,8 +18,8 @@ async function main(location) {
         return;
     }
 
-    const processed = processData(weatherData);
-    Renderer.displayData(processed);
+    processed = processData(weatherData);
+    Renderer.displayData(processed, state);
 }
 
 main("Rome");
@@ -26,6 +30,15 @@ if (locationForm !== null) {
 
         if (locationInput !== null) {
             main(locationInput.value);
+            locationInput.value = "";
         }
+    });
+}
+
+if (unitSwitcher !== null) {
+    unitSwitcher.addEventListener("click", () => {
+        state = !state;
+        console.log(state);
+        Renderer.displayData(processed, state);
     });
 }
