@@ -40,24 +40,32 @@ main {
 
 form {
     display: flex;
+
+    --border-thickness: 0.15rem;
+    --border-radius: 0.75rem;
+    --font-size: 1.05rem;
 }
 
 form>input {
     flex: 1;
     height: 2rem;
-    font-size: 1.1rem;
+    font-size: var(--font-size);
     padding: 0 0.75rem;
+    border: var(--border-thickness) solid var(--color-accent);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    background: transparent;
+    color: var(--color-text);
 }
 
 form>button {
     flex: 1;
-    font-size: 1.1rem;
+    font-size: var(--font-size);
     max-width: 150px;
     cursor: pointer;
-}
-
-#title-container {
-    margin: 1.5rem 0;
+    border: var(--border-thickness) solid var(--color-accent);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    background: var(--color-accent);
+    color: var(--color-base);
 }
 
 #title-container>h2 {
