@@ -1,7 +1,7 @@
 # Weather app
 
 A simple weather forecast app written in JavaScript. It will use the
-[Visual crossing](https://www.visualcrossing.com/) weather API to gather the
+[Visual Crossing](https://www.visualcrossing.com/) weather API to gather the
 weather data. The goal of this project is to learn how to interact with APIs in
 JavaScript.
 
