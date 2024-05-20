@@ -27,7 +27,7 @@ body {
 }
 
 main {
-    padding: 2rem;
+    padding: 0 2rem;
     flex: 1;
     display: grid;
     grid-template-columns: min(1100px, 100%);
@@ -182,4 +182,23 @@ form>button[type="submit"] {
 
 .day-data p {
     margin: 0.4rem 0;
+}
+
+footer {
+    min-height: 3rem;
+    background: var(--color-surface);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+footer a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
