@@ -5,6 +5,7 @@
     box-sizing: border-box;
 
     --color-base: #1e1e2e;
+    --color-surface: #313244;
     --color-text: #cdd6f4;
     --color-subtext: #9399b2;
     --color-accent: #a6e3a1;
@@ -26,10 +27,10 @@ body {
 }
 
 main {
-    padding: 1rem;
+    padding: 2rem;
     flex: 1;
     display: grid;
-    grid-template-columns: min(750px, 100%);
+    grid-template-columns: min(1100px, 100%);
     place-content: center;
 }
 
@@ -85,7 +86,8 @@ form>button {
     color: var(--color-subtext);
 }
 
-#data-container {
+#data-container,
+#forecast-container {
     padding: 1.5rem;
     border: 3px solid var(--color-accent);
     border-radius: 1.5rem;
@@ -99,6 +101,10 @@ form>button {
     display: grid;
     grid-template-columns: 2fr 3fr;
     text-align: center;
+}
+
+#current-conditions p {
+    font-size: 1.1rem;
 }
 
 #data-container img {
@@ -118,4 +124,45 @@ form>button {
 
 #current-data img {
     max-width: 3rem;
+}
+
+#forecast-container>#days {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 8rem);
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#days {
+    margin-top: 1.5rem;
+}
+
+#days>.day {
+    text-align: center;
+    background: var(--color-surface);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.day p {
+    font-size: 1.1rem;
+}
+
+.day>.day-name {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.day>.day-date {
+    color: var(--color-subtext);
+}
+
+.day img {
+    max-width: 4rem;
+    min-height: 4rem;
+    margin: 0.6rem 0;
+}
+
+.day-data p {
+    margin: 0.4rem 0;
 }
