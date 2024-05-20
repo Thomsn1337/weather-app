@@ -58,7 +58,7 @@ function processData(data) {
 
     const days = [];
     const dataDays = data.days;
-    dataDays.forEach((day) => {
+    dataDays.slice(1).forEach((day) => {
         days.push({
             icon: day.icon,
             datetime: day.datetime,
@@ -66,12 +66,10 @@ function processData(data) {
             metric: {
                 tempmin: day.tempmin,
                 tempmax: day.tempmax,
-                windspeed: day.windspeed,
             },
             us: {
                 tempmin: celsiusToFahrenheit(day.tempmin),
                 tempmax: celsiusToFahrenheit(day.tempmax),
-                windspeed: kmhToMph(day.windspeed),
             },
         });
     });

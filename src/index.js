@@ -15,14 +15,17 @@ async function main(location) {
     }
 
     const processed = processData(weatherData);
-    console.log(processed);
-
     Renderer.displayData(processed);
 }
 
-main("rome");
+main("Rome");
 
-locationForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    main(locationInput.value);
-});
+if (locationForm !== null) {
+    locationForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (locationInput !== null) {
+            main(locationInput.value);
+        }
+    });
+}
