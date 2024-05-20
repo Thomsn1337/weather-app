@@ -1,4 +1,5 @@
 import currentInfo from "../components/currentInfo";
+import dayInfo from "../components/dayInfo";
 import header from "../components/header";
 
 const Renderer = (function Renderer() {
@@ -9,7 +10,9 @@ const Renderer = (function Renderer() {
     function displayTitle(title, description) {
         const container = document.querySelector("#title-container");
 
-        container.innerHTML = header(title, description);
+        if (container !== null) {
+            container.innerHTML = header(title, description);
+        }
     }
 
     /**
@@ -18,7 +21,24 @@ const Renderer = (function Renderer() {
     function displayCurrentData(currentData) {
         const container = document.querySelector("#current-conditions");
 
-        container.innerHTML = currentInfo(currentData);
+        if (container !== null) {
+            container.innerHTML = currentInfo(currentData);
+        }
+    }
+
+    /**
+     * @param {Array} days
+     */
+    function displayForecast(days) {
+        const container = document.querySelector("#days");
+
+        if (container !== null) {
+            container.innerHTML = "";
+
+            days.forEach((day) => {
+                container.innerHTML += dayInfo(day);
+            });
+        }
     }
 
     /**
@@ -28,6 +48,7 @@ const Renderer = (function Renderer() {
         const { title, description, currentConditions, days } = data;
         displayTitle(title, description);
         displayCurrentData(currentConditions);
+        displayForecast(days);
     }
 
     return {
