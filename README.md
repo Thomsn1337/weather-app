@@ -7,5 +7,6 @@ JavaScript.
 
 ## Links
 
+- [Live view](https://thomsn1337.github.io/weather-app/)
 - [Assignment page](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 - [About Odin](https://www.theodinproject.com/about)
