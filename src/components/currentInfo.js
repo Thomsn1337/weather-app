@@ -5,9 +5,20 @@ import windIcon from "../img/windspeed.svg";
 
 /**
  * @param {object} data
+ * @param {boolean} state
  */
-function currentInfo(data) {
+function currentInfo(data, state) {
     const icon = icons[data.icon];
+    let temperature;
+    let windspeed;
+
+    if (state) {
+        temperature = `${data.metric.temp} °C`;
+        windspeed = `${data.metric.windspeed} km/h`;
+    } else {
+        temperature = `${data.us.temp} °F`;
+        windspeed = `${data.us.windspeed} mph`;
+    }
 
     return `
         <div id="current-icon">
@@ -17,7 +28,7 @@ function currentInfo(data) {
         <div id="current-data">
             <div id="current-temp">
                 <img src="${tempIcon}" alt="temperature" />
-                <p>${data.metric.temp} °C</p>
+                <p>${temperature}</p>
             </div>
             <div id="current-hum">
                 <img src="${humIcon}" alt="temperature" />
@@ -25,7 +36,7 @@ function currentInfo(data) {
             </div>
             <div id="current-wind">
                 <img src="${windIcon}" alt="temperature" />
-                <p>${data.metric.windspeed} km/h</p>
+                <p>${windspeed}</p>
             </div>
         </div>
     `;
